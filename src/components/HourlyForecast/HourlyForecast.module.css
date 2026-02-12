@@ -1,0 +1,59 @@
+.section {
+  margin-bottom: 1.5rem;
+}
+
+.heading {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+.row {
+  display: flex;
+  gap: 0.6rem;
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
+  -webkit-overflow-scrolling: touch;
+}
+
+.row::-webkit-scrollbar {
+  height: 4px;
+}
+
+.row::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 2px;
+}
+
+.card {
+  flex: 0 0 auto;
+  min-width: 75px;
+  background: var(--color-surface);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow);
+  padding: 0.75rem 0.5rem;
+  text-align: center;
+}
+
+.time {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  margin-bottom: 0.15rem;
+}
+
+.icon {
+  width: 36px;
+  height: 36px;
+}
+
+.temp {
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.rain {
+  font-size: 0.7rem;
+  color: var(--color-primary);
+  margin-top: 0.15rem;
+}
