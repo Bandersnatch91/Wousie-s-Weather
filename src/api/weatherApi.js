@@ -20,6 +20,14 @@ export async function fetchForecast(lat, lon, units = 'metric') {
   return res.json();
 }
 
+export async function fetchAirPollution(lat, lon) {
+  const res = await fetch(
+    `${BASE_URL}/air_pollution?lat=${lat}&lon=${lon}&appid=${API_KEY}`
+  );
+  if (!res.ok) return null;
+  return res.json();
+}
+
 export async function searchCities(query) {
   const res = await fetch(
     `${GEO_URL}/direct?q=${encodeURIComponent(query)}&limit=5&appid=${API_KEY}`

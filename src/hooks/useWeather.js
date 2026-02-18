@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react';
-import { fetchCurrentWeather, fetchForecast } from '../api/weatherApi';
+import { fetchCurrentWeather, fetchForecast, fetchAirPollution } from '../api/weatherApi';
 
 export function useWeather(coords, units) {
   const [current, setCurrent] = useState(null);
   const [forecast, setForecast] = useState(null);
+  const [airQuality, setAirQuality] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
@@ -16,11 +17,13 @@ export function useWeather(coords, units) {
     Promise.all([
       fetchCurrentWeather(coords.lat, coords.lon, units),
       fetchForecast(coords.lat, coords.lon, units),
+      fetchAirPollution(coords.lat, coords.lon),
     ])
-      .then(([weatherData, forecastData]) => {
+      .then(([weatherData, forecastData, airData]) => {
         if (cancelled) return;
         setCurrent(weatherData);
         setForecast(forecastData);
+        setAirQuality(airData);
       })
       .catch((err) => {
         if (cancelled) return;
@@ -35,5 +38,5 @@ export function useWeather(coords, units) {
     };
   }, [coords?.lat, coords?.lon, units]);
 
-  return { current, forecast, loading, error };
+  return { current, forecast, airQuality, loading, error };
 }

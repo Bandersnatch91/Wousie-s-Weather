@@ -7,6 +7,7 @@ import SearchBar from './components/SearchBar/SearchBar';
 import CurrentWeather from './components/CurrentWeather/CurrentWeather';
 import HourlyForecast from './components/HourlyForecast/HourlyForecast';
 import Forecast from './components/Forecast/Forecast';
+import AirQuality from './components/AirQuality/AirQuality';
 import Favorites from './components/Favorites/Favorites';
 import Loader from './components/Loader/Loader';
 import ErrorMessage from './components/ErrorMessage/ErrorMessage';
@@ -18,7 +19,7 @@ function App() {
   const [units, setUnits] = useState('imperial');
   const [searchError, setSearchError] = useState(null);
 
-  const { current, forecast, loading, error } = useWeather(coords, units);
+  const { current, forecast, airQuality, loading, error } = useWeather(coords, units);
   const { position, geoError, requestLocation } = useGeolocation();
   const { favorites, addFavorite, removeFavorite } = useFavorites();
 
@@ -107,6 +108,7 @@ function App() {
           <CurrentWeather data={current} units={units} />
           <HourlyForecast data={forecast} units={units} />
           <Forecast data={forecast} units={units} />
+          <AirQuality data={airQuality} />
         </>
       )}
 
