@@ -1,0 +1,16 @@
+{
+  "name": "Wousie's Weather",
+  "short_name": "Wousie's Weather",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#e8eef5",
+  "theme_color": "#3b82f6",
+  "icons": [
+    {
+      "src": "/wousie.jpg",
+      "sizes": "any",
+      "type": "image/jpeg",
+      "purpose": "any"
+    }
+  ]
+}
