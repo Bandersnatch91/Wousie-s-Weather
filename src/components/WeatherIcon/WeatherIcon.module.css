@@ -1,0 +1,71 @@
+.icon {
+  display: block;
+}
+
+/* Sun — gentle slow spin */
+.sunny {
+  animation: spin 12s linear infinite;
+}
+
+/* Clouds — float side to side */
+.cloudy {
+  animation: float 4s ease-in-out infinite;
+}
+
+/* Rain — bounce down */
+.rainy {
+  animation: bounce 1.5s ease-in-out infinite;
+}
+
+/* Thunderstorm — flash/shake */
+.stormy {
+  animation: shake 0.4s ease-in-out infinite, flash 3s ease-in-out infinite;
+}
+
+/* Snow — gentle drift down and sway */
+.snowy {
+  animation: drift 3s ease-in-out infinite;
+}
+
+/* Mist/fog — pulse in and out */
+.misty {
+  animation: pulse 3s ease-in-out infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(6px); }
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(4px); }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-2px); }
+  75% { transform: translateX(2px); }
+}
+
+@keyframes flash {
+  0%, 90%, 100% { opacity: 1; }
+  95% { opacity: 0.6; }
+}
+
+@keyframes drift {
+  0%, 100% { transform: translate(0, 0); }
+  25% { transform: translate(3px, 2px); }
+  50% { transform: translate(0, 4px); }
+  75% { transform: translate(-3px, 2px); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}

@@ -1,5 +1,6 @@
-import { ICON_URL, UNITS_LABEL } from '../../utils/constants';
+import { UNITS_LABEL } from '../../utils/constants';
 import { formatDayName } from '../../utils/formatters';
+import WeatherIcon from '../WeatherIcon/WeatherIcon';
 import styles from './Forecast.module.css';
 
 export default function ForecastCard({ day, units }) {
@@ -8,10 +9,10 @@ export default function ForecastCard({ day, units }) {
   return (
     <div className={styles.card}>
       <div className={styles.dayName}>{formatDayName(day.date)}</div>
-      <img
-        className={styles.icon}
-        src={ICON_URL(day.icon)}
-        alt={day.description}
+      <WeatherIcon
+        code={day.icon}
+        description={day.description}
+        size={48}
       />
       <div className={styles.tempRange}>
         <span className={styles.tempHigh}>{day.high}{unitLabel.temp}</span>{' '}

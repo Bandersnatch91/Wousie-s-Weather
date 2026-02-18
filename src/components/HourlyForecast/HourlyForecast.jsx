@@ -1,4 +1,5 @@
-import { ICON_URL, UNITS_LABEL } from '../../utils/constants';
+import { UNITS_LABEL } from '../../utils/constants';
+import WeatherIcon from '../WeatherIcon/WeatherIcon';
 import styles from './HourlyForecast.module.css';
 
 function formatHour(dtTxt) {
@@ -21,10 +22,10 @@ export default function HourlyForecast({ data, units }) {
           return (
             <div key={entry.dt} className={styles.card}>
               <div className={styles.time}>{formatHour(entry.dt_txt)}</div>
-              <img
-                className={styles.icon}
-                src={ICON_URL(entry.weather[0].icon)}
-                alt={entry.weather[0].description}
+              <WeatherIcon
+                code={entry.weather[0].icon}
+                description={entry.weather[0].description}
+                size={36}
               />
               <div className={styles.temp}>
                 {Math.round(entry.main.temp)}{unitLabel.temp}
